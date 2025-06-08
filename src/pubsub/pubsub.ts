@@ -1,5 +1,5 @@
 
-type EventCallback<T = any> = (data: T) => void;
+export type EventCallback<T = any> = (data: T) => void;
 
 interface Subscriber<T = any> {
   fn: EventCallback<T>;
@@ -43,4 +43,3 @@ class PubSub {
 const pubsub = new PubSub();
 
 export default pubsub;
-export type { EventCallback };
