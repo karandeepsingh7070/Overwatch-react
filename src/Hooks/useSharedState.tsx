@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import pubsub from '../pubsub/pubsub';
-import { getSharedState, setSharedState } from '../sharedState';
+import { getSharedState, setSharedState } from '../StateManagement/sharedState';
 
 export function useSharedState<T>(key: string): [T, (v: T) => void] {
   const [value, setValue] = useState<T>(() => getSharedState<T>(key));

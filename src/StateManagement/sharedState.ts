@@ -1,5 +1,6 @@
 import { produce } from 'immer';
-import pubsub from './pubsub/pubsub';
+import pubsub from '../pubsub/pubsub';
+import { runMiddlewares } from './Middleware';
 
 const stateStore = new Map<string, any>();
 
@@ -12,17 +13,17 @@ export function createSharedState<T>(key: string, initialValue: T) {
 export function setSharedState<T>(key: string, newValue: T) {
   const prevValue = stateStore.get(key);
 
-  // If both previous and new value are objects, using Immer to deeply update
-  const immutableValue =
-  isPlainObject(prevValue) && isPlainObject(newValue)
-  ? produce(prevValue, (draft: any) => {
-      Object.assign(draft, newValue);
-    })
-  : newValue;
-
-
-  stateStore.set(key, immutableValue);
-  pubsub.publish<T>(key, immutableValue as T);
+  runMiddlewares<T>(key, newValue, (val) => {
+    // If both previous and new value are objects, using Immer to deeply update
+    const immutableValue =
+      isPlainObject(prevValue) && isPlainObject(val)
+        ? produce(prevValue, (draft: any) => {
+          Object.assign(draft, val);
+        })
+        : val;
+    stateStore.set(key, immutableValue);
+    pubsub.publish<T>(key, immutableValue as T);
+  });
 }
 
 export function getSharedState<T>(key: string): T {

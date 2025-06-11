@@ -7,7 +7,13 @@ type Theme = {
 
 const UpdateTheme = () => {
     const [theme, setTheme] = useSharedState<Theme>('theme');
-  return (<button onClick={() => setTheme({...theme, type : theme.type == 'light' ? 'dark' : 'light'})}>
+
+    const handleClick = () => {
+      let newTheme = {...theme, type : theme.type == 'light' ? 'dark' : 'light'}
+      setTheme(newTheme)
+
+    }
+  return (<button onClick={() => handleClick()}>
     {`Update theme to ${theme.type == 'light' ? 'dark' : 'light'}`}
     </button>)
 }
