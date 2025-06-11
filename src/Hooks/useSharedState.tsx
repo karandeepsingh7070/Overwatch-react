@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
 import pubsub from '../pubsub/pubsub';
+import { runMiddlewareChain } from '../StateManagement/Middleware';
 import { getSharedState, setSharedState } from '../StateManagement/sharedState';
 
-export function useSharedState<T>(key: string): [T, (v: T) => void] {
+type Middleware<T> = (value: T, next: (v: T) => void) => void;
+interface Options<T> {
+  middleware?: Middleware<T>[];
+}
+export function useSharedState<T>(key: string, options?: Options<T>): [T, (v: T) => void] {
   const [value, setValue] = useState<T>(() => getSharedState<T>(key));
 
   useEffect(() => {
@@ -17,8 +22,15 @@ export function useSharedState<T>(key: string): [T, (v: T) => void] {
     };
   }, [key]);
 
-  const setter = (newValue: T) => {
-    setSharedState<T>(key, newValue);
+ const setter = (newValue: T) => {
+    const middleware = options?.middleware;
+    if (middleware?.length) {
+      runMiddlewareChain(middleware, newValue, (processedValue) => { // first will run encapsulated middlewares then global
+        setSharedState<T>(key, processedValue);
+      });
+    } else {
+      setSharedState<T>(key, newValue);
+    }
   };
 
   return [value, setter];

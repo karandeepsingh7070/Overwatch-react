@@ -2,14 +2,14 @@ type Middleware<T> = (value: T, next: (v: T) => void) => void;
 
 const middlewares: Record<string, Middleware<any>[]> = {};
 
-export function applyMiddleware<T>(key: string, middleware: Middleware<T>) {
+function applyMiddleware<T>(key: string, middleware: Middleware<T>) {
   if (!middlewares[key]) {
     middlewares[key] = [];
   }
   middlewares[key].push(middleware);
 }
 
-export function runMiddlewares<T>(key: string, value: T, final: (v: T) => void) {
+function runMiddlewares<T>(key: string, value: T, onComplete: (v: T) => void) {
   const chain = middlewares[key] || [];
   let index = 0;
 
@@ -18,9 +18,28 @@ export function runMiddlewares<T>(key: string, value: T, final: (v: T) => void) 
     if (mw) {
       mw(val, next);
     } else {
-      final(val); // done, return state
+      onComplete(val); // done, return state
     }
   };
 
   next(value);
 }
+
+function runMiddlewareChain<T>(
+  middleware: Middleware<T>[],
+  value: T,
+  onComplete: (val: T) => void
+) {
+  let index = 0;
+  const next = (v: T) => {
+    const mw = middleware[index++];
+    if (mw) {
+      mw(v, next);
+    } else {
+      onComplete(v);
+    }
+  };
+  next(value);
+}
+
+export {Middleware, applyMiddleware,runMiddlewares ,runMiddlewareChain}
