@@ -1,3 +1,4 @@
+import { enqueueUpdate } from "./stateUpdateBatching";
 
 export type EventCallback<T = any> = (data: T) => void;
 
@@ -32,7 +33,7 @@ const pubsub = {
     if (this.events[event]) {
       this.events[event].forEach(({ fn, componentName }) => {
         try {
-          fn(data);
+          enqueueUpdate(() => fn(data))
         } catch (err) {
           console.error(`[${componentName}] Error in "${event}" subscriber:`, err);
         }
