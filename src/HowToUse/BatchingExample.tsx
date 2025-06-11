@@ -21,7 +21,7 @@ const BatchingExample = () => {
     <h2>Test State Batching</h2>
     <h5>{`Current user is ${user?.type} and Author is ${author?.name}`}</h5>
     <p>{`How it works : it'll combine both excecution and run state update only once`}</p>
-    <button onClick={handleStateUpdate}>Update User to Admin & Toggle Theme</button>
+    <button onClick={handleStateUpdate}>Update User to Admin & Reveal Auther</button>
   </>)
 }
 
