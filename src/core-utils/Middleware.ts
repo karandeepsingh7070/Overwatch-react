@@ -42,4 +42,4 @@ function runMiddlewareChain<T>(
   next(value);
 }
 
-export {Middleware, applyMiddleware,runMiddlewares ,runMiddlewareChain}
+export {applyMiddleware,runMiddlewares ,runMiddlewareChain}
