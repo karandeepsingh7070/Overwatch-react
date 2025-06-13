@@ -3,13 +3,26 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "main": "dist/overwatch.cjs.js",
+  "module": "dist/overwatch.es.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/overwatch.es.js",
+      "require": "./dist/overwatch.cjs.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -24,5 +37,19 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5"
-  }
+  },
+  "dependencies": {
+    "immer": "^10.1.1",
+    "overwatch": "file:overwatch-1.0.0.tgz",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "keywords": [
+    "react",
+    "state-management",
+    "pubsub",
+    "react-hooks",
+    "overwatch"
+  ],
+  "author": "Karandeep Singh",
+  "license": "MIT"
 }

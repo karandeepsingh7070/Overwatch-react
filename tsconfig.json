@@ -1,15 +1,18 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": true,
+    "outDir": "dist",
+    "module": "ESNext",
+    "target": "ESNext",
     "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "lib": ["DOM", "ESNext"], 
-    "types": ["react", "react-dom"],
-    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-  }
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
