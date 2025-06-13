@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import pubsub from './pubsub';
+import pubsub from '../core/pubsub';
 
 type EventCallback<T = any> = (data: T) => void;
 

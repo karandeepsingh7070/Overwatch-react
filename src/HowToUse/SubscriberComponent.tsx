@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEvent } from '../pubsub/useEvent';
+import { useEvent } from '../Hooks/useEvent';
 
 const SubscriberComponent: React.FC = () => {
   useEvent('greet', (data) => {

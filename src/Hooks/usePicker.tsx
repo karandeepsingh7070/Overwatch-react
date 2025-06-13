@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
-import { getSharedState } from '../StateManagement/sharedState';
-import pubsub from '../pubsub/pubsub';
+import { getSharedState } from '../core-utils/sharedState';
+import pubsub from '../core/pubsub';
 
 export function usePicker<T, S>(
   key: string,

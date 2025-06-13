@@ -1,6 +1,6 @@
 import { enqueueUpdate } from "./stateUpdateBatching";
 
-export type EventCallback<T = any> = (data: T) => void;
+type EventCallback<T = any> = (data: T) => void;
 
 interface Subscriber<T = any> {
   fn: EventCallback<T>;

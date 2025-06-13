@@ -1,5 +1,5 @@
 import { produce } from 'immer';
-import pubsub from '../pubsub/pubsub';
+import pubsub from '../core/pubsub';
 import { runMiddlewares } from './Middleware';
 
 const stateStore = new Map<string, any>();

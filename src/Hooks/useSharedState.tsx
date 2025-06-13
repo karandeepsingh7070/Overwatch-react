@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import pubsub from '../pubsub/pubsub';
-import { runMiddlewareChain } from '../StateManagement/Middleware';
-import { getSharedState, setSharedState } from '../StateManagement/sharedState';
+import pubsub from '../core/pubsub';
+import { runMiddlewareChain } from '../core-utils/Middleware';
+import { getSharedState, setSharedState } from '../core-utils/sharedState';
 
 type Middleware<T> = (value: T, next: (v: T) => void) => void;
 interface Options<T> {
