@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSharedState } from "../Hooks/useSharedState"
 
 type Author = {
@@ -5,7 +6,8 @@ type Author = {
 };
   
 type User = {
-    type: string
+    type: string,
+    name: string
 };
 
 const BatchingExample = () => {
@@ -17,6 +19,9 @@ const BatchingExample = () => {
         setUser({...user, type : "Admin"})
         setAuthor({...author,name : "Karan"})
     }
+    useEffect(() => {
+      console.log("Re-rendered : User got updated")
+    },[user])
   return (<>
     <h2>Test State Batching</h2>
     <h5>{`Current user is ${user?.type} and Author is ${author?.name}`}</h5>
