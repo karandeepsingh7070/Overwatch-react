@@ -23,6 +23,7 @@
     "preview": "vite preview"
   },
   "peerDependencies": {
+    "immer": "^10.1.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -36,11 +37,7 @@
     "globals": "^16.0.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
-    "vite": "^6.3.5"
-  },
-  "dependencies": {
-    "immer": "^10.1.1",
-    "overwatch-ts": "file:overwatch-ts-1.0.0.tgz",
+    "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.4"
   },
   "keywords": [
@@ -51,5 +48,8 @@
     "overwatch"
   ],
   "author": "Karandeep Singh",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "overwatch-ts": "^1.0.0"
+  }
 }
