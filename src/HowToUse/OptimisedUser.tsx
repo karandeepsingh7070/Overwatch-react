@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { usePicker } from '../Hooks/usePicker';
+import {usePicker} from "overwatch-ts"
 
 type User = {
     name: string

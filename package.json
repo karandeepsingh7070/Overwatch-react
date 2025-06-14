@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "immer": "^10.1.1",
-    "overwatch": "file:overwatch-1.0.0.tgz",
+    "overwatch-ts": "file:overwatch-ts-1.0.0.tgz",
     "vite-plugin-dts": "^4.5.4"
   },
   "keywords": [

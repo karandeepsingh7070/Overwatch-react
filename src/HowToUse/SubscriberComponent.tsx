@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useEvent } from '../Hooks/useEvent';
+
+import {useEvent} from "overwatch-ts"
 
 const SubscriberComponent: React.FC = () => {
   useEvent('greet', (data) => {
