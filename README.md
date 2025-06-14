@@ -38,6 +38,17 @@ At its core, OverWatch uses a **pub-sub pattern** to manage state effectively:
 
 ## How to Use: Getting Started
 
+### Installation
+To get started with OverWatch-TS, simply install it using npm or yarn:
+
+```ts
+# Using npm
+npm install overwatch-ts
+
+# Using yarn
+yarn add overwatch-ts
+```
+
 ### Step 1: `createSharedState(key, initialValue)`
 
 This function initializes a shared state value globally. While **optional**, it's helpful for establishing a default state before any component mounts.
@@ -76,7 +87,7 @@ const ThemeSwitcher = () => {
 > This hook allows you to extract only a specific part of a shared state object, which can help optimize component rendering by preventing unnecessary re-renders.
 
 ```ts
-import { usePicker } from '@your-library-name'; // Replace with your actual package name
+import { usePicker } from 'overwatch-ts'; // Replace with your actual package name
 
 const ThemeIndicator = () => {
   const mode = usePicker('theme', t => t.mode);
@@ -94,7 +105,7 @@ const ThemeIndicator = () => {
 > Use this to attach one or more **global middlewares** to a shared state key. These middlewares will apply to all updates for that specific state key.
 
 ```ts
-import { applyMiddleware, createSharedState } from '@your-library-name'; // Replace with your actual package name
+import { applyMiddleware, createSharedState } from 'overwatch-ts'; // Replace with your actual package name
 
 // A simple logger for all 'theme' state changes
 const globalThemeLogger = (newValue, next) => {
@@ -112,7 +123,7 @@ applyMiddleware('theme', globalThemeLogger);
 > If you need middleware to apply only within a specific component, you can pass it directly when using `useSharedState`.
 
 ```ts
-import { useSharedState } from '@your-library-name'; // Replace with your actual package name
+import { useSharedState } from 'overwatch-ts'; // Replace with your actual package name
 
 const MyComponentWithLocalLogging = () => {
   const localLogger = (val, next) => {
@@ -139,7 +150,7 @@ const MyComponentWithLocalLogging = () => {
 **Broadcast an event:**
 
 ```ts
-import { useBroadcast } from '@your-library-name'; // Replace with your actual package name
+import { useBroadcast } from 'overwatch-ts'; // Replace with your actual package name
 
 const LogoutButton = () => {
   const broadcast = useBroadcast();
@@ -156,7 +167,7 @@ const LogoutButton = () => {
 **Listen for an event:**
 
 ```ts
-import { useEvent } from '@your-library-name'; // Replace with your actual package name
+import { useEvent } from 'overwatch-ts'; // Replace with your actual package name
 import { useNavigate } from 'react-router-dom'; // Example for React Router
 
 const AuthListener = () => {
