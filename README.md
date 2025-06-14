@@ -1,4 +1,6 @@
 # Overwatch — A Lightweight Yet Powerful State Manager
+[![Build Size](https://img.shields.io/bundlephobia/minzip/overwatch-ts?label=bundle%20size&style=flat&colorA=000000&colorB=000000)](https://bundlephobia.com/result?p=overwatch-ts)
+[![Version](https://img.shields.io/npm/v/overwatch-ts?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/overwatch-ts)
 
 OverWatch is a modern, TypeScript-first implementation of the **Publisher-Subscriber pattern**. It's a super lightweight (unpacked : 30KB) yet expressive **state management library for React Js & Next Js**, built on the **singleton design pattern**. It offers support for **global and instance-specific middlewares**, **immutability**, **batched updates**, and **custom event communication** — all designed to be used without extensive boilerplate.
 
