@@ -1,6 +1,6 @@
 {
   "name": "overwatch-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "dist/overwatch.cjs.js",
   "module": "dist/overwatch.es.js",
