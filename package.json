@@ -1,5 +1,5 @@
 {
-  "name": "overwatch",
+  "name": "overwatch-ts",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -16,6 +16,15 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "react",
+    "state-management",
+    "pubsub",
+    "react-hooks",
+    "overwatch"
+  ],
+  "author": "Karandeep Singh",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -34,22 +43,13 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "immer": "^10.1.1",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5",
-    "vite-plugin-dts": "^4.5.4",
-    "immer": "^10.1.1"
+    "vite-plugin-dts": "^4.5.4"
   },
   "dependencies": {
-    "overwatch": "file:overwatch-1.0.0.tgz"
-  },
-  "keywords": [
-    "react",
-    "state-management",
-    "pubsub",
-    "react-hooks",
-    "overwatch"
-  ],
-  "author": "Karandeep Singh",
-  "license": "MIT"
+    "overwatch-ts": "file:overwatch-ts-1.0.0.tgz"
+  }
 }
