@@ -1,6 +1,5 @@
 {
   "name": "overwatch-ts",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
   "main": "dist/overwatch.cjs.js",
@@ -48,8 +47,5 @@
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.4"
-  },
-  "dependencies": {
-    "overwatch-ts": "file:overwatch-ts-1.0.0.tgz"
   }
 }
